@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="820.0" prefWidth="1150.0" style="-fx-background-color: #F6F7F9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+   
+   <!-- TOP NAVIGATION BAR -->
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="70.0" style="-fx-background-color: #12100E; -fx-padding: 0 45 0 45;" BorderPane.alignment="CENTER">
+         <children>
+            <!-- Logo & Brand Title -->
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #E05A10; -fx-background-radius: 8;">
+                     <children>
+                        <Label text="👨‍🍳" textFill="WHITE">
+                           <font><Font size="18.0" /></font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" spacing="1.0">
+                     <children>
+                        <Label text="SMART RESTAURANT" textFill="WHITE">
+                           <font><Font name="System Bold" size="13.5" /></font>
+                        </Label>
+                        <Label text="MANAGEMENT SYSTEM" textFill="#E05A10">
+                           <font><Font name="System Bold" size="8.5" /></font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Nav Links -->
+            <HBox alignment="CENTER" spacing="28.0">
+               <children>
+                  <VBox alignment="CENTER" spacing="4.0">
+                     <children>
+                        <Hyperlink fx:id="linkHome" onAction="#handleHome" style="-fx-border-color: transparent; -fx-underline: false;" text="Home" textFill="#E05A10">
+                           <font><Font name="System Bold" size="13.0" /></font>
+                        </Hyperlink>
+                        <Region prefHeight="2.0" prefWidth="25.0" style="-fx-background-color: #E05A10;" />
+                     </children>
+                  </VBox>
+                  <Hyperlink fx:id="linkAboutUs" onAction="#handleAboutUs" style="-fx-border-color: transparent; -fx-underline: false;" text="About Us" textFill="#CCCCCC">
+                     <font><Font size="13.0" /></font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="linkServices" onAction="#handleServices" style="-fx-border-color: transparent; -fx-underline: false;" text="Services" textFill="#CCCCCC">
+                     <font><Font size="13.0" /></font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="linkMenu" onAction="#handleMenu" style="-fx-border-color: transparent; -fx-underline: false;" text="Menu" textFill="#CCCCCC">
+                     <font><Font size="13.0" /></font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="linkContact" onAction="#handleContact" style="-fx-border-color: transparent; -fx-underline: false;" text="Contact" textFill="#CCCCCC">
+                     <font><Font size="13.0" /></font>
+                  </Hyperlink>
+               </children>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Login / Register Button -->
+            <Button fx:id="btnLoginRegister" onAction="#handleLoginRegister" prefHeight="38.0" prefWidth="135.0" style="-fx-background-color: #E05A10; -fx-background-radius: 6; -fx-cursor: hand;" text="👤  Login / Register" textFill="WHITE">
+               <font><Font name="System Bold" size="11.5" /></font>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+
+   <!-- MAIN CONTENT AREA -->
+   <center>
+      <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: #F6F7F9;">
+         <content>
+            <VBox spacing="25.0">
+               <children>
+                  
+                  <!-- HERO SECTION -->
+                  <HBox alignment="CENTER_LEFT" prefHeight="400.0" style="-fx-background-color: #1A1410; -fx-padding: 0 50 0 50;">
+                     <children>
+                        <!-- Hero Left Content -->
+                        <VBox alignment="CENTER_LEFT" spacing="18.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox spacing="2.0">
+                                 <children>
+                                    <Label fx:id="lblWelcome" text="Welcome to" textFill="WHITE">
+                                       <font><Font name="System Bold" size="34.0" /></font>
+                                    </Label>
+                                    <Label text="Smart Restaurant" textFill="#E05A10">
+                                       <font><Font name="System Bold" size="34.0" /></font>
+                                    </Label>
+                                    <Label text="Management System" textFill="WHITE">
+                                       <font><Font name="System Bold" size="34.0" /></font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+
+                              <Label text="Manage your restaurant operations efficiently,&#10;from orders to customers and much more." textFill="#BBBBBB">
+                                 <font><Font size="14.0" /></font>
+                              </Label>
+
+                              <Button fx:id="btnExploreNow" onAction="#handleExploreNow" prefHeight="42.0" prefWidth="155.0" style="-fx-background-color: #E05A10; -fx-background-radius: 6; -fx-cursor: hand;" text="🍴  Explore Now" textFill="WHITE">
+                                 <font><Font name="System Bold" size="13.0" /></font>
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+
+                        <!-- Hero Right Card: Why Choose Us? -->
+                        <VBox prefWidth="340.0" spacing="16.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12; -fx-padding: 22;">
+                           <children>
+                              <Label text="Why Choose Us?" textFill="#1A1A1A">
+                                 <font><Font name="System Bold" size="16.0" /></font>
+                              </Label>
+
+                              <!-- Item 1 -->
+                              <HBox alignment="CENTER_LEFT" spacing="14.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="36.0" prefWidth="36.0" style="-fx-background-color: #FDF0E6; -fx-background-radius: 8;">
+                                       <children><Label text="⏱️" textFill="#E05A10"><font><Font size="15.0" /></font></Label></children>
+                                    </VBox>
+                                    <VBox spacing="2.0">
+                                       <children>
+                                          <Label text="Fast Operations" textFill="#222222"><font><Font name="System Bold" size="12.0" /></font></Label>
+                                          <Label text="Speed up your workflow and serve more customers." textFill="#777777"><font><Font size="10.0" /></font></Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+
+                              <!-- Item 2 -->
+                              <HBox alignment="CENTER_LEFT" spacing="14.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="36.0" prefWidth="36.0" style="-fx-background-color: #FDF0E6; -fx-background-radius: 8;">
+                                       <children><Label text="📊" textFill="#E05A10"><font><Font size="15.0" /></font></Label></children>
+                                    </VBox>
+                                    <VBox spacing="2.0">
+                                       <children>
+                                          <Label text="Real-time Reports" textFill="#222222"><font><Font name="System Bold" size="12.0" /></font></Label>
+                                          <Label text="Get real-time insights and grow your business." textFill="#777777"><font><Font size="10.0" /></font></Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+
+                              <!-- Item 3 -->
+                              <HBox alignment="CENTER_LEFT" spacing="14.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="36.0" prefWidth="36.0" style="-fx-background-color: #FDF0E6; -fx-background-radius: 8;">
+                                       <children><Label text="👥" textFill="#E05A10"><font><Font size="15.0" /></font></Label></children>
+                                    </VBox>
+                                    <VBox spacing="2.0">
+                                       <children>
+                                          <Label text="Customer Management" textFill="#222222"><font><Font name="System Bold" size="12.0" /></font></Label>
+                                          <Label text="Keep track of your customers and their preferences." textFill="#777777"><font><Font size="10.0" /></font></Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+
+                              <!-- Item 4 -->
+                              <HBox alignment="CENTER_LEFT" spacing="14.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="36.0" prefWidth="36.0" style="-fx-background-color: #FDF0E6; -fx-background-radius: 8;">
+                                       <children><Label text="🛡️" textFill="#E05A10"><font><Font size="15.0" /></font></Label></children>
+                                    </VBox>
+                                    <VBox spacing="2.0">
+                                       <children>
+                                          <Label text="Secure &amp; Reliable" textFill="#222222"><font><Font name="System Bold" size="12.0" /></font></Label>
+                                          <Label text="Your data is safe with our secure system." textFill="#777777"><font><Font size="10.0" /></font></Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+
+                  <!-- STATS SECTION (4 Cards) -->
+                  <HBox alignment="CENTER" spacing="18.0">
+                     <padding>
+                        <Insets left="45.0" right="45.0" />
+                     </padding>
+                     <children>
+                        <!-- Stat 1 -->
+                        <HBox alignment="CENTER_LEFT" prefHeight="75.0" spacing="14.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 12 18 12 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #FDF0E6; -fx-background-radius: 8;">
+                                 <children><Label text="🏪" textFill="#E05A10"><font><Font size="18.0" /></font></Label></children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" spacing="1.0">
+                                 <children>
+                                    <Label fx:id="lblDailyOrders" text="120+" textFill="#1A1A1A"><font><Font name="System Bold" size="17.0" /></font></Label>
+                                    <Label text="Daily Orders" textFill="#333333"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                    <Label text="Orders processed today" textFill="#888888"><font><Font size="9.0" /></font></Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- Stat 2 -->
+                        <HBox alignment="CENTER_LEFT" prefHeight="75.0" spacing="14.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 12 18 12 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #FDF0E6; -fx-background-radius: 8;">
+                                 <children><Label text="👥" textFill="#E05A10"><font><Font size="18.0" /></font></Label></children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" spacing="1.0">
+                                 <children>
+                                    <Label fx:id="lblHappyCustomers" text="350+" textFill="#1A1A1A"><font><Font name="System Bold" size="17.0" /></font></Label>
+                                    <Label text="Happy Customers" textFill="#333333"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                    <Label text="Satisfied customers" textFill="#888888"><font><Font size="9.0" /></font></Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- Stat 3 -->
+                        <HBox alignment="CENTER_LEFT" prefHeight="75.0" spacing="14.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 12 18 12 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #FDF0E6; -fx-background-radius: 8;">
+                                 <children><Label text="📖" textFill="#E05A10"><font><Font size="18.0" /></font></Label></children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" spacing="1.0">
+                                 <children>
+                                    <Label fx:id="lblMenuItems" text="45+" textFill="#1A1A1A"><font><Font name="System Bold" size="17.0" /></font></Label>
+                                    <Label text="Menu Items" textFill="#333333"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                    <Label text="Delicious items available" textFill="#888888"><font><Font size="9.0" /></font></Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- Stat 4 -->
+                        <HBox alignment="CENTER_LEFT" prefHeight="75.0" spacing="14.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 12 18 12 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #FDF0E6; -fx-background-radius: 8;">
+                                 <children><Label text="⭐" textFill="#E05A10"><font><Font size="18.0" /></font></Label></children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" spacing="1.0">
+                                 <children>
+                                    <Label text="4.8" textFill="#1A1A1A"><font><Font name="System Bold" size="17.0" /></font></Label>
+                                    <Label text="Customer Rating" textFill="#333333"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                    <Label text="Average customer rating" textFill="#888888"><font><Font size="9.0" /></font></Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+
+                  <!-- POPULAR DISHES SECTION -->
+                  <VBox spacing="18.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 14; -fx-padding: 22; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 8, 0, 0, 2);">
+                     <VBox.margin>
+                        <Insets bottom="25.0" left="45.0" right="45.0" />
+                     </VBox.margin>
+                     <children>
+                        <!-- Header -->
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label text="Popular Dishes" textFill="#1A1A1A">
+                                 <font><Font name="System Bold" size="19.0" /></font>
+                              </Label>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Hyperlink fx:id="linkViewFullMenu" onAction="#handleViewFullMenu" style="-fx-border-color: transparent;" text="View Full Menu ➔" textFill="#E05A10">
+                                 <font><Font name="System Bold" size="12.5" /></font>
+                              </Hyperlink>
+                           </children>
+                        </HBox>
+
+                        <!-- Dishes Grid (5 Items) -->
+                        <HBox spacing="14.0">
+                           <children>
+
+                              <!-- Dish 1: Pizza -->
+                              <VBox prefWidth="190.0" spacing="8.0" style="-fx-border-color: #EEEEEE; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="115.0" style="-fx-background-color: #FFF3E0; -fx-background-radius: 8;">
+                                       <children><Label text="🍕"><font><Font size="42.0" /></font></Label></children>
+                                    </VBox>
+                                    <Label text="PIZZA" textFill="#E05A10"><font><Font name="System Bold" size="8.5" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <Label text="Margherita Pizza" textFill="#222222"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Label text="\$12.99" textFill="#E05A10"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <Label text="★ ★ ★ ★ ★  4.6" textFill="#FFA000"><font><Font size="9.5" /></font></Label>
+                                 </children>
+                              </VBox>
+
+                              <!-- Dish 2: Chicken -->
+                              <VBox prefWidth="190.0" spacing="8.0" style="-fx-border-color: #EEEEEE; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="115.0" style="-fx-background-color: #FFF3E0; -fx-background-radius: 8;">
+                                       <children><Label text="🍗"><font><Font size="42.0" /></font></Label></children>
+                                    </VBox>
+                                    <Label text="MAIN COURSE" textFill="#E05A10"><font><Font name="System Bold" size="8.5" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <Label text="Grilled Chicken" textFill="#222222"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Label text="\$15.99" textFill="#E05A10"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <Label text="★ ★ ★ ★ ★  4.7" textFill="#FFA000"><font><Font size="9.5" /></font></Label>
+                                 </children>
+                              </VBox>
+
+                              <!-- Dish 3: Pasta -->
+                              <VBox prefWidth="190.0" spacing="8.0" style="-fx-border-color: #EEEEEE; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="115.0" style="-fx-background-color: #FFF3E0; -fx-background-radius: 8;">
+                                       <children><Label text="🍝"><font><Font size="42.0" /></font></Label></children>
+                                    </VBox>
+                                    <Label text="PASTA" textFill="#E05A10"><font><Font name="System Bold" size="8.5" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <Label text="Spaghetti Bolognese" textFill="#222222"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Label text="\$13.99" textFill="#E05A10"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <Label text="★ ★ ★ ★ ★  4.5" textFill="#FFA000"><font><Font size="9.5" /></font></Label>
+                                 </children>
+                              </VBox>
+
+                              <!-- Dish 4: Burger -->
+                              <VBox prefWidth="190.0" spacing="8.0" style="-fx-border-color: #EEEEEE; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="115.0" style="-fx-background-color: #FFF3E0; -fx-background-radius: 8;">
+                                       <children><Label text="🍔"><font><Font size="42.0" /></font></Label></children>
+                                    </VBox>
+                                    <Label text="BURGER" textFill="#E05A10"><font><Font name="System Bold" size="8.5" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <Label text="Classic Burger" textFill="#222222"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Label text="\$11.99" textFill="#E05A10"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <Label text="★ ★ ★ ★ ★  4.4" textFill="#FFA000"><font><Font size="9.5" /></font></Label>
+                                 </children>
+                              </VBox>
+
+                              <!-- Dish 5: Salad -->
+                              <VBox prefWidth="190.0" spacing="8.0" style="-fx-border-color: #EEEEEE; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="115.0" style="-fx-background-color: #FFF3E0; -fx-background-radius: 8;">
+                                       <children><Label text="🥗"><font><Font size="42.0" /></font></Label></children>
+                                    </VBox>
+                                    <Label text="SALAD" textFill="#E05A10"><font><Font name="System Bold" size="8.5" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <Label text="Caesar Salad" textFill="#222222"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Label text="\$8.99" textFill="#E05A10"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                       </children>
+                                    </HBox>
+                                    <Label text="★ ★ ★ ★ ★  4.6" textFill="#FFA000"><font><Font size="9.5" /></font></Label>
+                                 </children>
+                              </VBox>
+
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+
+</BorderPane>

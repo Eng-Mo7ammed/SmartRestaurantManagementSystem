@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="820.0" prefWidth="1200.0" style="-fx-background-color: #F6F7F9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuManagementController">
+
+   <!-- LEFT SIDEBAR -->
+   <left>
+      <VBox prefWidth="220.0" spacing="8.0" style="-fx-background-color: #120D0B; -fx-padding: 20 15 20 15;" BorderPane.alignment="CENTER">
+         <children>
+            <!-- Logo Section -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-padding: 0 0 20 10;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="36.0" prefWidth="36.0" style="-fx-background-color: #E05A10; -fx-background-radius: 8;">
+                     <children>
+                        <Label text="👨‍🍳" textFill="WHITE"><font><Font size="16.0" /></font></Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" spacing="1.0">
+                     <children>
+                        <Label text="SMART RESTAURANT" textFill="WHITE"><font><Font name="System Bold" size="11.0" /></font></Label>
+                        <Label text="MANAGEMENT SYSTEM" textFill="#E05A10"><font><Font name="System Bold" size="7.5" /></font></Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+
+            <!-- Navigation Links -->
+            <Hyperlink fx:id="linkHome" onAction="#handleHome" prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="🏠   Home" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+            <Hyperlink prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="👥   Customers" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+            
+            <!-- Active Menu Link -->
+            <HBox alignment="CENTER_LEFT" prefHeight="38.0" style="-fx-background-color: #E05A10; -fx-background-radius: 8; -fx-padding: 0 0 0 12;">
+               <children>
+                  <Label text="🍱   Menu" textFill="WHITE"><font><Font name="System Bold" size="12.5" /></font></Label>
+               </children>
+            </HBox>
+
+            <Hyperlink fx:id="linkOrder" onAction="#handleOrder" prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="📋   Orders" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+            <Hyperlink prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="📅   Reservations" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+            <Hyperlink prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="💳   Payments" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+            <Hyperlink prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="📊   Reports" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+            <Hyperlink prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="⚙️   Settings" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <Hyperlink fx:id="btnLogout" onAction="#handleLogout" prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="🚪   Logout" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+         </children>
+      </VBox>
+   </left>
+
+   <!-- TOP NAVBAR -->
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0 25 0 25; -fx-border-color: #EEEEEE; -fx-border-width: 0 0 1 0;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="☰   Menu Management" textFill="#222222"><font><Font name="System Bold" size="14.0" /></font></Label>
+            <Region HBox.hgrow="ALWAYS" />
+            
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <Label text="🔔" textFill="#666666"><font><Font size="15.0" /></font></Label>
+                  <HBox alignment="CENTER" spacing="6.0">
+                     <children>
+                        <Label style="-fx-background-color: #EEEEEE; -fx-padding: 6; -fx-background-radius: 20;" text="👤" />
+                        <Label text="Admin ▾" textFill="#333333"><font><Font name="System Bold" size="12.0" /></font></Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+
+   <!-- CENTER CONTENT -->
+   <center>
+      <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: #F6F7F9;">
+         <content>
+            <VBox spacing="20.0" style="-fx-padding: 25;">
+               <children>
+
+                  <!-- Header Area -->
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <VBox spacing="3.0">
+                           <children>
+                              <Label text="Menu Management" textFill="#1A1A1A"><font><Font name="System Bold" size="20.0" /></font></Label>
+                              <Label text="Add, edit, and manage your restaurant menu items." textFill="#777777"><font><Font size="12.0" /></font></Label>
+                           </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnAddNewItem" onAction="#handleAddNewItem" prefHeight="38.0" style="-fx-background-color: #E05A10; -fx-background-radius: 6; -fx-cursor: hand; -fx-padding: 0 15 0 15;" text="+ Add New Item" textFill="WHITE">
+                           <font><Font name="System Bold" size="12.0" /></font>
+                        </Button>
+                     </children>
+                  </HBox>
+
+                  <!-- Main Grid (Left Form + Right List) -->
+                  <HBox spacing="20.0">
+                     <children>
+
+                        <!-- LEFT FORM: Add / Edit Item -->
+                        <VBox prefWidth="320.0" spacing="14.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 6, 0, 0, 1);">
+                           <children>
+                              <Label text="Add / Edit Menu Item" textFill="#1A1A1A"><font><Font name="System Bold" size="13.5" /></font></Label>
+
+                              <!-- Item Name -->
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Label text="Item Name" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                                    <TextField fx:id="txtItemName" promptText="Enter item name" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6; -fx-padding: 8;" />
+                                 </children>
+                              </VBox>
+
+                              <!-- Category -->
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Label text="Category" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                                    <ComboBox fx:id="cmbCategory" prefWidth="300.0" promptText="Select category" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6; -fx-padding: 3;" />
+                                 </children>
+                              </VBox>
+
+                              <!-- Price -->
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Label text="Price ($)" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                                    <TextField fx:id="txtPrice" promptText="Enter price" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6; -fx-padding: 8;" />
+                                 </children>
+                              </VBox>
+
+                              <!-- Description -->
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Label text="Description" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                                    <TextArea fx:id="txtDescription" prefHeight="75.0" promptText="Enter item description" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6;" wrapText="true" />
+                                 </children>
+                              </VBox>
+
+                              <!-- Image Upload Box -->
+                              <VBox spacing="5.0">
+                                 <children>
+                                    <Label text="Image" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                                    <VBox fx:id="btnUploadImage" alignment="CENTER" prefHeight="70.0" spacing="4.0" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6; -fx-border-style: dashed;">
+                                       <children>
+                                          <Label text="📤" textFill="#888888"><font><Font size="14.0" /></font></Label>
+                                          <Label text="Click to upload image" textFill="#888888"><font><Font size="10.5" /></font></Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+
+                              <!-- Form Action Buttons -->
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Button fx:id="btnSave" onAction="#handleSave" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #E05A10; -fx-background-radius: 6; -fx-cursor: hand;" text="💾  Save Item" textFill="WHITE">
+                                       <font><Font name="System Bold" size="11.0" /></font>
+                                    </Button>
+                                    <Button fx:id="btnClear" onAction="#handleClear" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: #F1F5F9; -fx-background-radius: 6; -fx-border-color: #E2E8F0; -fx-border-radius: 6; -fx-cursor: hand;" text="🔄  Clear" textFill="#475569">
+                                       <font><Font name="System Bold" size="11.0" /></font>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <Button fx:id="btnUpdate" onAction="#handleUpdate" prefHeight="35.0" prefWidth="99.0" style="-fx-background-color: grEEN; -fx-background-radius: 6; -fx-cursor: hand;" text="Update" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnDelete" onAction="#handleDelete" prefHeight="35.0" prefWidth="98.0" style="-fx-background-color: red; -fx-background-radius: 6; -fx-cursor: hand;" text="Delete" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+
+                           </children>
+                        </VBox>
+
+                        <!-- RIGHT LIST: Menu Items Table Area -->
+                        <VBox spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 6, 0, 0, 1);" HBox.hgrow="ALWAYS">
+                           <children>
+                              
+                              <!-- Top Search and Filter Bar -->
+                              <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                 <children>
+                                    <Label text="Menu Items List" textFill="#1A1A1A"><font><Font name="System Bold" size="13.5" /></font></Label>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="txtSearch" prefWidth="180.0" promptText="🔍  Search menu items..." style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6; -fx-padding: 6;" />
+                                    <ComboBox fx:id="cmbFilterCategory" prefWidth="130.0" promptText="All Categories" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6; -fx-padding: 2;" />
+                                 </children>
+                              </HBox>
+
+                              <!-- Footer Pagination Text -->
+                              <HBox alignment="CENTER_LEFT" style="-fx-padding: 10 0 0 0;" />
+                              <TableView fx:id="tblMenuItems" prefHeight="524.0" prefWidth="551.0">
+                                <columns>
+                                  <TableColumn fx:id="colItemId" text="ID" />
+                                  <TableColumn fx:id="colItemName" prefWidth="108.0" text="Item Name" />
+                                    <TableColumn fx:id="colCategory" prefWidth="90.0" text="Category" />
+                                    <TableColumn fx:id="colPrice" text="Price" />
+                                    <TableColumn fx:id="colStatus" prefWidth="90.0" text="Status" />
+                                    <TableColumn fx:id="colDescription" prefWidth="100.0" text="Description" />
+                                </columns>
+                              </TableView>
+
+                           </children>
+                        </VBox>
+
+                     </children>
+                  </HBox>
+
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+
+</BorderPane>

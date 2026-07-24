@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="850.0" prefWidth="1280.0" style="-fx-background-color: #F6F7F9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderManagementController">
+
+   <!-- LEFT SIDEBAR -->
+   <left>
+      <VBox prefWidth="220.0" spacing="8.0" style="-fx-background-color: #120D0B; -fx-padding: 20 15 20 15;" BorderPane.alignment="CENTER">
+         <children>
+            <!-- Logo Section -->
+            <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-padding: 0 0 20 10;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="36.0" prefWidth="36.0" style="-fx-background-color: #E05A10; -fx-background-radius: 8;">
+                     <children>
+                        <Label text="👨‍🍳" textFill="WHITE"><font><Font size="16.0" /></font></Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" spacing="1.0">
+                     <children>
+                        <Label text="SMART RESTAURANT" textFill="WHITE"><font><Font name="System Bold" size="11.0" /></font></Label>
+                        <Label text="MANAGEMENT SYSTEM" textFill="#E05A10"><font><Font name="System Bold" size="7.5" /></font></Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+
+            <!-- Navigation Links -->
+            <Hyperlink fx:id="linkHome" onAction="#handleHome" prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="🏠   Home" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+            <Hyperlink prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="👥   Customers" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+            <Hyperlink fx:id="linkMenu" onAction="#handleMenu" prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="🍱   Menu" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+
+            <!-- Active Link: Orders -->
+            <HBox alignment="CENTER_LEFT" prefHeight="38.0" style="-fx-background-color: #E05A10; -fx-background-radius: 8; -fx-padding: 0 0 0 12;">
+               <children>
+                  <Label text="📋   Orders" textFill="WHITE"><font><Font name="System Bold" size="12.5" /></font></Label>
+               </children>
+            </HBox>
+
+            <Hyperlink prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="📅   Reservations" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+            <Hyperlink prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="💳   Payments" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+            <Hyperlink prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="📊   Reports" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+            <Hyperlink prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="⚙️   Settings" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <Hyperlink fx:id="btnLogout" onAction="#handleLogout" prefHeight="38.0" style="-fx-border-color: transparent; -fx-padding: 0 0 0 12;" text="🚪   Logout" textFill="#BBBBBB"><font><Font size="12.5" /></font></Hyperlink>
+         </children>
+      </VBox>
+   </left>
+
+   <!-- TOP NAVBAR -->
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" style="-fx-background-color: #FFFFFF; -fx-padding: 0 25 0 25; -fx-border-color: #EEEEEE; -fx-border-width: 0 0 1 0;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="☰   Order Management" textFill="#222222"><font><Font name="System Bold" size="14.0" /></font></Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <Label text="🔔" textFill="#666666"><font><Font size="15.0" /></font></Label>
+                  <HBox alignment="CENTER" spacing="6.0">
+                     <children>
+                        <Label style="-fx-background-color: #EEEEEE; -fx-padding: 6; -fx-background-radius: 20;" text="👤" />
+                        <Label text="Admin ▾" textFill="#333333"><font><Font name="System Bold" size="12.0" /></font></Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+
+   <!-- CENTER CONTENT -->
+   <center>
+      <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: #F6F7F9;">
+         <content>
+            <VBox spacing="20.0" style="-fx-padding: 20;">
+               <children>
+
+                  <!-- STATS CARDS ROW -->
+                  <HBox spacing="15.0">
+                     <children>
+                        <!-- Card 1 -->
+                        <HBox alignment="CENTER_LEFT" prefHeight="75.0" spacing="12.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 8; -fx-padding: 12 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 5, 0, 0, 1);" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #FFF3E0; -fx-background-radius: 8;">
+                                 <children><Label text="📋" textFill="#E05A10"><font><Font size="16.0" /></font></Label></children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" spacing="2.0">
+                                 <children>
+                                    <Label text="Total Orders Today" textFill="#777777"><font><Font size="11.0" /></font></Label>
+                                    <Label fx:id="lblTotalOrders" text="23" textFill="#1A1A1A"><font><Font name="System Bold" size="18.0" /></font></Label>
+                                    <Label text="Orders" textFill="#888888"><font><Font size="9.5" /></font></Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- Card 2 -->
+                        <HBox alignment="CENTER_LEFT" prefHeight="75.0" spacing="12.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 8; -fx-padding: 12 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 5, 0, 0, 1);" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #DCFCE7; -fx-background-radius: 8;">
+                                 <children><Label text="🛡️" textFill="#166534"><font><Font size="16.0" /></font></Label></children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" spacing="2.0">
+                                 <children>
+                                    <Label text="Pending Orders" textFill="#777777"><font><Font size="11.0" /></font></Label>
+                                    <Label fx:id="lblPendingOrders" text="7" textFill="#1A1A1A"><font><Font name="System Bold" size="18.0" /></font></Label>
+                                    <Label text="Orders" textFill="#888888"><font><Font size="9.5" /></font></Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- Card 3 -->
+                        <HBox alignment="CENTER_LEFT" prefHeight="75.0" spacing="12.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 8; -fx-padding: 12 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 5, 0, 0, 1);" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #F3E8FF; -fx-background-radius: 8;">
+                                 <children><Label text=" 🛍️" textFill="#6B21A8"><font><Font size="16.0" /></font></Label></children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" spacing="2.0">
+                                 <children>
+                                    <Label text="Completed Orders" textFill="#777777"><font><Font size="11.0" /></font></Label>
+                                    <Label fx:id="lblCompletedOrders" text="16" textFill="#1A1A1A"><font><Font name="System Bold" size="18.0" /></font></Label>
+                                    <Label text="Orders" textFill="#888888"><font><Font size="9.5" /></font></Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- Card 4 -->
+                        <HBox alignment="CENTER_LEFT" prefHeight="75.0" spacing="12.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 8; -fx-padding: 12 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 5, 0, 0, 1);" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #E0F2FE; -fx-background-radius: 8;">
+                                 <children><Label text="💼" textFill="#0369A1"><font><Font size="16.0" /></font></Label></children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" spacing="2.0">
+                                 <children>
+                                    <Label text="Today's Revenue" textFill="#777777"><font><Font size="11.0" /></font></Label>
+                                    <Label fx:id="lblTodayRevenue" text="\$1,286.50" textFill="#1A1A1A"><font><Font name="System Bold" size="17.0" /></font></Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+
+                  <!-- MAIN SECTION: Create New Order (Left) & Recent Orders (Right) -->
+                  <HBox spacing="18.0">
+                     <children>
+
+                        <!-- LEFT: Create New Order Panel -->
+                        <VBox prefHeight="618.0" prefWidth="613.0" spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 6, 0, 0, 1);" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="📄  Create New Order" textFill="#E05A10"><font><Font name="System Bold" size="14.0" /></font></Label>
+
+                              <!-- Top Inputs: Table, Customer, Date, Time -->
+                              <HBox spacing="12.0">
+                                 <children>
+                                    <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label text="Table / Order Type" textFill="#444444"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                          <ComboBox fx:id="cmbOrderType" prefWidth="200.0" promptText="Dine In - Table 5" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label text="Customer" textFill="#444444"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                          <ComboBox fx:id="cmbCustomer" prefWidth="200.0" promptText="Walk-in Customer" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="4.0">
+                                       <children>
+                                          <Label text="Date &amp; Time" textFill="#444444"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                          <HBox spacing="6.0">
+                                             <children>
+                                                <DatePicker fx:id="dpOrderDate" prefWidth="110.0" promptText="21/05/2025" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6;" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+
+                              <!-- Sub-split: Add Items (Left) vs Order Items Basket (Right) -->
+                              <HBox spacing="15.0">
+                                 <children>
+                                    
+                                    <!-- Add Items Column -->
+                                    <VBox prefWidth="340.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label text="Add Items" textFill="#333333"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          
+                                          <HBox spacing="8.0">
+                                             <children>
+                                                <TextField fx:id="txtSearch" promptText="🔍 Search menu items..." style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6;" HBox.hgrow="ALWAYS" />
+                                                <ComboBox fx:id="cmbCategory" prefWidth="110.0" promptText="All Categories" style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6;" />
+                                             </children>
+                                          </HBox>
+
+                                          <HBox alignment="CENTER_LEFT" style="-fx-padding: 5 0; -fx-border-color: #EEEEEE; -fx-border-width: 0 0 1 0;">
+                                             <children>
+                                                <Label prefWidth="140.0" text="Item" textFill="#888888"><font><Font size="10.5" /></font></Label>
+                                                <Label prefWidth="50.0" text="Price" textFill="#888888"><font><Font size="10.5" /></font></Label>
+                                                <Label prefWidth="80.0" text="Quantity" textFill="#888888"><font><Font size="10.5" /></font></Label>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label text="Action" textFill="#888888"><font><Font size="10.5" /></font></Label>
+                                             </children>
+                                          </HBox>
+
+                                          <!-- Item Row 1 -->
+                                          <HBox alignment="CENTER_LEFT" spacing="6.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: #FFF3E0; -fx-background-radius: 4;"><children><Label text="🍕" /></children></VBox>
+                                                <Label prefWidth="90.0" text="Margherita Pizza" textFill="#222222"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                                <Label fx:id="lblPizzaPrice" prefWidth="45.0" text="\$12.99" textFill="#444444"><font><Font size="10.0" /></font></Label>
+                                                <HBox alignment="CENTER" style="-fx-border-color: #E2E8F0; -fx-border-radius: 4;">
+                                                   <children>
+                                                      <Button fx:id="btnPizzaMinus" onAction="#handlePizzaMinus" prefHeight="22.0" prefWidth="20.0" style="-fx-background-color: transparent;" text="-" />
+                                                      <Label fx:id="lblPizzaQty" text="1"><font><Font size="10.5" /></font></Label>
+                                                      <Button fx:id="btnPizzaPlus" onAction="#handlePizzaPlus" prefHeight="26.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="+" />
+                                                   </children>
+                                                </HBox>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="btnPizzaAdd" onAction="#handleAddItem" style="-fx-background-color: #FFF3E0; -fx-text-fill: #E05A10; -fx-border-color: #FFEDD5; -fx-border-radius: 4; -fx-cursor: hand;" text="Add"><font><Font size="10.0" /></font></Button>
+                                             </children>
+                                          </HBox>
+
+                                          <!-- Item Row 2 -->
+                                          <HBox alignment="CENTER_LEFT" spacing="6.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: #FFF3E0; -fx-background-radius: 4;"><children><Label text="🍔" /></children></VBox>
+                                                <Label prefWidth="90.0" text="Classic Burger" textFill="#222222"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                                <Label fx:id="lblBurgerPrice" prefWidth="45.0" text="\$11.99" textFill="#444444"><font><Font size="10.0" /></font></Label>
+                                                <HBox alignment="CENTER" style="-fx-border-color: #E2E8F0; -fx-border-radius: 4;">
+                                                   <children>
+                                                      <Button fx:id="btnBurgerMinus" onAction="#handleBurgerMinus" prefHeight="22.0" prefWidth="20.0" style="-fx-background-color: transparent;" text="-" />
+                                                      <Label fx:id="lblBurgerQty" text="1"><font><Font size="10.5" /></font></Label>
+                                                      <Button fx:id="btnBurgerPlus" onAction="#handleBurgerPlus" prefHeight="26.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="+" />
+                                                   </children>
+                                                </HBox>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="btnBurgerAdd" onAction="#handleAddItem" style="-fx-background-color: #FFF3E0; -fx-text-fill: #E05A10; -fx-border-color: #FFEDD5; -fx-border-radius: 4; -fx-cursor: hand;" text="Add"><font><Font size="10.0" /></font></Button>
+                                             </children>
+                                          </HBox>
+
+                                          <!-- Item Row 3 -->
+                                          <HBox alignment="CENTER_LEFT" spacing="6.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: #FFF3E0; -fx-background-radius: 4;"><children><Label text="🍗" /></children></VBox>
+                                                <Label prefWidth="90.0" text="Grilled Chicken" textFill="#222222"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                                <Label fx:id="lblChickenPrice" prefWidth="45.0" text="\$15.99" textFill="#444444"><font><Font size="10.0" /></font></Label>
+                                                <HBox alignment="CENTER" style="-fx-border-color: #E2E8F0; -fx-border-radius: 4;">
+                                                   <children>
+                                                      <Button fx:id="btnChickenMinus" onAction="#handleChickenMinus" prefHeight="22.0" prefWidth="20.0" style="-fx-background-color: transparent;" text="-" />
+                                                      <Label fx:id="lblChickenQty" text="1"><font><Font size="10.5" /></font></Label>
+                                                      <Button fx:id="btnChickenPlus" onAction="#handleChickenPlus" prefHeight="26.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="+" />
+                                                   </children>
+                                                </HBox>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="btnChickenAdd" onAction="#handleAddItem" style="-fx-background-color: #FFF3E0; -fx-text-fill: #E05A10; -fx-border-color: #FFEDD5; -fx-border-radius: 4; -fx-cursor: hand;" text="Add"><font><Font size="10.0" /></font></Button>
+                                             </children>
+                                          </HBox>
+
+                                          <!-- Item Row 4 -->
+                                          <HBox alignment="CENTER_LEFT" spacing="6.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: #FFF3E0; -fx-background-radius: 4;"><children><Label text="🥗" /></children></VBox>
+                                                <Label prefWidth="90.0" text="Caesar Salad" textFill="#222222"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                                <Label fx:id="lblSaladPrice" prefWidth="45.0" text="\$8.99" textFill="#444444"><font><Font size="10.0" /></font></Label>
+                                                <HBox alignment="CENTER" style="-fx-border-color: #E2E8F0; -fx-border-radius: 4;">
+                                                   <children>
+                                                      <Button fx:id="btnSaladMinus" onAction="#handleSaladMinus" prefHeight="22.0" prefWidth="20.0" style="-fx-background-color: transparent;" text="-" />
+                                                      <Label fx:id="lblSaladQty" text="1"><font><Font size="10.5" /></font></Label>
+                                                      <Button fx:id="btnSaladPlus" onAction="#handleSaladPlus" prefHeight="26.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="+" />
+                                                   </children>
+                                                </HBox>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="btnSaladAdd" onAction="#handleAddItem" style="-fx-background-color: #FFF3E0; -fx-text-fill: #E05A10; -fx-border-color: #FFEDD5; -fx-border-radius: 4; -fx-cursor: hand;" text="Add"><font><Font size="10.0" /></font></Button>
+                                             </children>
+                                          </HBox>
+
+                                          <!-- Item Row 5 -->
+                                          <HBox alignment="CENTER_LEFT" spacing="6.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: #FFF3E0; -fx-background-radius: 4;"><children><Label text="🍝" /></children></VBox>
+                                                <Label prefWidth="90.0" text="Spaghetti Bolognese" textFill="#222222"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                                <Label fx:id="lblSpaghettiPrice" prefWidth="45.0" text="\$13.99" textFill="#444444"><font><Font size="10.0" /></font></Label>
+                                                <HBox alignment="CENTER" style="-fx-border-color: #E2E8F0; -fx-border-radius: 4;">
+                                                   <children>
+                                                      <Button fx:id="btnSpaghettiMinus" onAction="#handleSpaghettiMinus" prefHeight="22.0" prefWidth="20.0" style="-fx-background-color: transparent;" text="-" />
+                                                      <Label fx:id="lblSpaghettiQty" text="1"><font><Font size="10.5" /></font></Label>
+                                                      <Button fx:id="btnSpaghettiPlus" onAction="#handleSpaghettiPlus" prefHeight="26.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="+" />
+                                                   </children>
+                                                </HBox>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="btnSpaghettiAdd" onAction="#handleAddItem" style="-fx-background-color: #FFF3E0; -fx-text-fill: #E05A10; -fx-border-color: #FFEDD5; -fx-border-radius: 4; -fx-cursor: hand;" text="Add"><font><Font size="10.0" /></font></Button>
+                                             </children>
+                                          </HBox>
+
+                                       </children>
+                                    </VBox>
+
+                                    <!-- Right Cart / Order Items Summary -->
+                                    <VBox prefWidth="300.0" spacing="10.0" style="-fx-background-color: #F8F9FA; -fx-background-radius: 8; -fx-padding: 12;" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label text="🛒 Order Items" textFill="#1A1A1A"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          
+                                          <!-- Table Header -->
+                                          <HBox alignment="CENTER_LEFT" style="-fx-padding: 4 0; -fx-border-color: #EEEEEE; -fx-border-width: 0 0 1 0;" />
+
+                                          <!-- Cart Item 1 -->
+                                          <HBox alignment="CENTER_LEFT">
+                                             <children>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+
+                                          <!-- Cart Item 2 -->
+                                          <HBox alignment="CENTER_LEFT">
+                                             <children>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+
+                                          <!-- Cart Item 3 -->
+                                          <HBox alignment="CENTER_LEFT">
+                                             <children>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <TableView fx:id="tblOrderItems" prefHeight="206.0" prefWidth="262.0">
+                                            <columns>
+                                              <TableColumn fx:id="colItemName" prefWidth="62.0" text="Item" />
+                                              <TableColumn fx:id="colQuantity" prefWidth="62.0" text="Qty" />
+                                                <TableColumn fx:id="colPrice" prefWidth="61.0" text="Price" />
+                                                <TableColumn fx:id="colTotal" prefWidth="61.0" text="Total" />
+                                            </columns>
+                                          </TableView>
+
+                                          <Region VBox.vgrow="ALWAYS" />
+
+                                          <!-- Subtotals Area -->
+                                          <VBox spacing="4.0" style="-fx-border-color: #E2E8F0; -fx-border-width: 1 0 0 0; -fx-padding: 8 0 0 0;">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <Label text="Subtotal" textFill="#666666"><font><Font size="10.5" /></font></Label>
+                                                      <Region HBox.hgrow="ALWAYS" />
+                                                      <Label fx:id="lblSubtotal" text="\$45.96" textFill="#333333"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label text="Tax (8%)" textFill="#666666"><font><Font size="10.5" /></font></Label>
+                                                      <Region HBox.hgrow="ALWAYS" />
+                                                      <Label fx:id="lblTax" text="\$3.68" textFill="#333333"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <Label text="Discount" textFill="#666666"><font><Font size="10.5" /></font></Label>
+                                                      <Region HBox.hgrow="ALWAYS" />
+                                                      <Label fx:id="lblDiscount" text="\$0.00" textFill="#333333"><font><Font name="System Bold" size="10.5" /></font></Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+
+                                          <!-- Total Amount -->
+                                          <HBox alignment="CENTER_LEFT" style="-fx-padding: 6 0 0 0;">
+                                             <children>
+                                                <Label text="Total Amount" textFill="#1A1A1A"><font><Font name="System Bold" size="13.0" /></font></Label>
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="lblTotalAmount" text="\$49.64" textFill="#E05A10"><font><Font name="System Bold" size="15.0" /></font></Label>
+                                             </children>
+                                          </HBox>
+
+                                       </children>
+                                    </VBox>
+
+                                 </children>
+                              </HBox>
+
+                              <!-- Action Buttons: Clear & Place Order -->
+                              <HBox alignment="CENTER_RIGHT" spacing="12.0">
+                                 <children>
+                                    <Button fx:id="btnClearOrder" onAction="#handleClearOrder" style="-fx-background-color: #FFFFFF; -fx-border-color: #E2E8F0; -fx-border-radius: 6; -fx-padding: 8 16; -fx-cursor: hand;" text="🗑️  Clear Order" textFill="#475569">
+                                       <font><Font name="System Bold" size="11.0" /></font>
+                                    </Button>
+                                    <Button fx:id="btnPlaceOrder" onAction="#handlePlaceOrder" style="-fx-background-color: #E05A10; -fx-background-radius: 6; -fx-padding: 8 20; -fx-cursor: hand;" text="🟧  Place Order" textFill="WHITE">
+                                       <font><Font name="System Bold" size="11.0" /></font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+
+                           </children>
+                        </VBox>
+
+                        <!-- RIGHT: Recent Orders Panel -->
+                        <VBox prefHeight="618.0" prefWidth="437.0" spacing="12.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 18; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 6, 0, 0, 1);">
+                           <children>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <Label text="Recent Orders" textFill="#1A1A1A"><font><Font name="System Bold" size="13.5" /></font></Label>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="txtSearchOrders" onKeyReleased="#handleSearchOrders" prefWidth="130.0" promptText="🔍 Search orders..." style="-fx-background-color: #F8F9FA; -fx-border-color: #E2E8F0; -fx-border-radius: 6; -fx-padding: 4 8;" />
+                                 </children>
+                              </HBox>
+
+                              <!-- View All Orders Button -->
+                              <HBox alignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <TableView fx:id="tableRecentOrders" prefHeight="526.0" prefWidth="375.0">
+                                <columns>
+                                  <TableColumn fx:id="colRecentOrderID" prefWidth="85.0" text="Order ID" />
+                                  <TableColumn fx:id="colRecentCustomer" prefWidth="90.0" text="Customer" />
+                                    <TableColumn fx:id="colRecentStatus" prefWidth="95.0" text="Status" />
+                                    <TableColumn fx:id="colRecentTotal" prefWidth="100.0" text="Total" />
+                                </columns>
+                              </TableView>
+
+                           </children>
+                        </VBox>
+
+                     </children>
+                  </HBox>
+
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+
+</BorderPane>

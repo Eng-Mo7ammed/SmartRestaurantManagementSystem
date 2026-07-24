@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="720.0" prefWidth="1050.0" style="-fx-background-color: #F5F5F7;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
+   
+   <!-- CENTER MAIN CONTAINER -->
+   <center>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <!-- MAIN CARD (Split into Left & Right) -->
+            <HBox maxHeight="640.0" maxWidth="960.0" prefHeight="640.0" prefWidth="960.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 16; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 20, 0, 0, 4);">
+               <children>
+                  
+                  <!-- LEFT PANEL (Dark Brand Area) -->
+                  <VBox alignment="CENTER" prefWidth="400.0" spacing="18.0" style="-fx-background-color: #1A1412; -fx-background-radius: 16 0 0 16;">
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                     <children>
+                        <!-- Logo & Title Section -->
+                        <VBox alignment="CENTER" spacing="8.0">
+                           <children>
+                              <Label text="👨‍🍳" textFill="#E65100">
+                                 <font><Font size="44.0" /></font>
+                              </Label>
+                              <Label text="SMART RESTAURANT" textFill="WHITE">
+                                 <font><Font name="System Bold" size="19.0" /></font>
+                              </Label>
+                              <Label text="MANAGEMENT SYSTEM" textFill="#E65100">
+                                 <font><Font name="System Bold" size="10.5" /></font>
+                              </Label>
+                           </children>
+                        </VBox>
+
+                        <Label text="───  🍳  ───" textFill="#E65100">
+                           <font><Font size="10.0" /></font>
+                        </Label>
+
+                        <Label alignment="CENTER" text="Manage your restaurant efficiently&#10;and delight your customers." textAlignment="CENTER" textFill="#CCCCCC">
+                           <font><Font size="12.5" /></font>
+                        </Label>
+
+                        <Region VBox.vgrow="ALWAYS" />
+
+                        <!-- Feature Cards Overlay Box -->
+                        <VBox spacing="12.0" style="-fx-background-color: rgba(255, 255, 255, 0.06); -fx-background-radius: 12; -fx-padding: 14;">
+                           <children>
+                              <!-- Feature 1 -->
+                              <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                 <children>
+                                    <Label text="📋" textFill="#E65100"><font><Font size="15.0" /></font></Label>
+                                    <VBox>
+                                       <children>
+                                          <Label text="Easy Management" textFill="WHITE"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Label text="Manage menu, orders, customers&#10;and more in one place." textFill="#AAAAAA"><font><Font size="9.5" /></font></Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+
+                              <!-- Feature 2 -->
+                              <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                 <children>
+                                    <Label text="👥" textFill="#E65100"><font><Font size="15.0" /></font></Label>
+                                    <VBox>
+                                       <children>
+                                          <Label text="Better Experience" textFill="WHITE"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Label text="Provide excellent service and&#10;keep customers happy." textFill="#AAAAAA"><font><Font size="9.5" /></font></Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+
+                              <!-- Feature 3 -->
+                              <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                 <children>
+                                    <Label text="📈" textFill="#E65100"><font><Font size="15.0" /></font></Label>
+                                    <VBox>
+                                       <children>
+                                          <Label text="Grow Your Business" textFill="WHITE"><font><Font name="System Bold" size="11.5" /></font></Label>
+                                          <Label text="Track performance and increase&#10;your restaurant's success." textFill="#AAAAAA"><font><Font size="9.5" /></font></Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+
+                  <!-- RIGHT PANEL (Register Form Area) -->
+                  <VBox alignment="CENTER_LEFT" prefWidth="560.0" spacing="14.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 16 16 0;">
+                     <padding>
+                        <Insets bottom="30.0" left="40.0" right="40.0" top="25.0" />
+                     </padding>
+                     <children>
+                        
+                        <!-- Header Title -->
+                        <VBox alignment="CENTER" spacing="4.0">
+                           <children>
+                              <Label text="👥" textFill="#E65100">
+                                 <font><Font size="22.0" /></font>
+                              </Label>
+                              <Label text="Create Your Account" textFill="#1A1A1A">
+                                 <font><Font name="System Bold" size="22.0" /></font>
+                              </Label>
+                              <Label text="Fill in the details below to register" textFill="#777777">
+                                 <font><Font size="12.0" /></font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </VBox>
+
+                        <!-- ROW 1: Full Name & Username -->
+                        <HBox spacing="15.0">
+                           <children>
+                              <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Full Name" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT" style="-fx-border-color: #E0E0E0; -fx-border-radius: 7; -fx-background-radius: 7; -fx-padding: 3 8 3 8;">
+                                       <children>
+                                          <Label text="👤 " textFill="#999999" />
+                                          <TextField fx:id="txtFullName" promptText="Enter your full name" style="-fx-background-color: transparent; -fx-prompt-text-fill: #AAAAAA;" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+
+                              <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Username" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT" style="-fx-border-color: #E0E0E0; -fx-border-radius: 7; -fx-background-radius: 7; -fx-padding: 3 8 3 8;">
+                                       <children>
+                                          <Label text="👤 " textFill="#999999" />
+                                          <TextField fx:id="txtUsername" promptText="Choose a username" style="-fx-background-color: transparent; -fx-prompt-text-fill: #AAAAAA;" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- ROW 2: Email & Phone Number -->
+                        <HBox spacing="15.0">
+                           <children>
+                              <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Email Address" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT" style="-fx-border-color: #E0E0E0; -fx-border-radius: 7; -fx-background-radius: 7; -fx-padding: 3 8 3 8;">
+                                       <children>
+                                          <Label text="✉ " textFill="#999999" />
+                                          <TextField fx:id="txtEmail" promptText="Enter your email" style="-fx-background-color: transparent; -fx-prompt-text-fill: #AAAAAA;" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+
+                              <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Phone Number" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT" style="-fx-border-color: #E0E0E0; -fx-border-radius: 7; -fx-background-radius: 7; -fx-padding: 3 8 3 8;">
+                                       <children>
+                                          <Label text="📞 " textFill="#999999" />
+                                          <TextField fx:id="txtPhone" promptText="Enter your phone number" style="-fx-background-color: transparent; -fx-prompt-text-fill: #AAAAAA;" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- ROW 3: Password & Confirm Password -->
+                        <HBox spacing="15.0">
+                           <children>
+                              <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Password" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT" style="-fx-border-color: #E0E0E0; -fx-border-radius: 7; -fx-background-radius: 7; -fx-padding: 3 8 3 8;">
+                                       <children>
+                                          <Label text="🔒 " textFill="#999999" />
+                                          <PasswordField fx:id="txtPassword" promptText="Create a password" style="-fx-background-color: transparent; -fx-prompt-text-fill: #AAAAAA;" HBox.hgrow="ALWAYS" />
+                                          <Label style="-fx-cursor: hand;" text="👁" textFill="#999999" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+
+                              <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Confirm Password" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                                    <HBox alignment="CENTER_LEFT" style="-fx-border-color: #E0E0E0; -fx-border-radius: 7; -fx-background-radius: 7; -fx-padding: 3 8 3 8;">
+                                       <children>
+                                          <Label text="🔒 " textFill="#999999" />
+                                          <PasswordField fx:id="txtConfirmPassword" promptText="Confirm your password" style="-fx-background-color: transparent; -fx-prompt-text-fill: #AAAAAA;" HBox.hgrow="ALWAYS" />
+                                          <Label style="-fx-cursor: hand;" text="👁" textFill="#999999" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <!-- ROW 4: Role Selection -->
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label text="Role" textFill="#333333"><font><Font name="System Bold" size="11.0" /></font></Label>
+                              <ComboBox fx:id="cmbRole" maxWidth="1.7976931348623157E308" promptText="Select your role" style="-fx-background-color: #FFFFFF; -fx-border-color: #E0E0E0; -fx-border-radius: 7; -fx-padding: 2;" />
+                           </children>
+                        </VBox>
+
+                        <!-- Terms Checkbox -->
+                        <HBox alignment="CENTER_LEFT" spacing="4.0">
+                           <children>
+                              <CheckBox fx:id="chkTerms" text="I agree to the " textFill="#666666"><font><Font size="11.0" /></font></CheckBox>
+                              <Hyperlink style="-fx-border-color: transparent; -fx-padding: 0;" text="Terms and Conditions" textFill="#E65100"><font><Font size="11.0" /></font></Hyperlink>
+                              <Label text=" and " textFill="#666666"><font><Font size="11.0" /></font></Label>
+                              <Hyperlink style="-fx-border-color: transparent; -fx-padding: 0;" text="Privacy Policy" textFill="#E65100"><font><Font size="11.0" /></font></Hyperlink>
+                           </children>
+                        </HBox>
+
+                        <!-- Register Button -->
+                        <Button fx:id="btnRegister" maxWidth="1.7976931348623157E308" onAction="#handleRegister" prefHeight="40.0" style="-fx-background-color: #E65100; -fx-background-radius: 8; -fx-cursor: hand;" text="👤+   Register" textFill="WHITE">
+                           <font><Font name="System Bold" size="13.5" /></font>
+                           <VBox.margin>
+                              <Insets top="4.0" />
+                           </VBox.margin>
+                        </Button>
+
+                        <!-- Divider Line with OR -->
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <Separator HBox.hgrow="ALWAYS" />
+                              <Label text="OR" textFill="#AAAAAA"><font><Font size="10.5" /></font></Label>
+                              <Separator HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+
+                        <!-- Login Footer Link -->
+                        <HBox alignment="CENTER" spacing="4.0">
+                           <children>
+                              <Label text="Already have an account?" textFill="#666666"><font><Font size="11.5" /></font></Label>
+                              <Hyperlink fx:id="linkLogin" onAction="#handleLogin" style="-fx-border-color: transparent;" text="Login here" textFill="#E65100"><font><Font name="System Bold" size="11.5" /></font></Hyperlink>
+                           </children>
+                        </HBox>
+
+                     </children>
+                  </VBox>
+
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </center>
+
+   <!-- FOOTER COPYRIGHT -->
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="35.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="© 2026 Smart Restaurant Management System. All rights reserved." textFill="#888888">
+               <font><Font size="11.0" /></font>
+            </Label>
+         </children>
+      </HBox>
+   </bottom>
+
+</BorderPane>
