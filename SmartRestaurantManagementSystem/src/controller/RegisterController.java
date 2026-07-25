@@ -167,10 +167,10 @@ public class RegisterController {
 
     if (rows > 0) {
 
-        showAlert(
-                Alert.AlertType.INFORMATION,
-                "Success",
-                "Account created successfully."
+    showAlert(
+        Alert.AlertType.INFORMATION,
+        "Registration Successful",
+        "Your account has been created successfully.\nYou can now log in to the system."
         );
         
         Parent root = FXMLLoader.load(getClass().getResource("/view/LoginViews.fxml"));

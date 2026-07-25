@@ -82,6 +82,12 @@ public class LoginController implements Initializable {
         Session.setUsername(rs.getString("username"));
 
         Session.setRole(rs.getString("role"));
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Login Successful");
+        alert.setHeaderText(null);
+        alert.setContentText("Welcome to Smart Restaurant Management System.");
+        alert.showAndWait();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HomeViews.fxml"));
 

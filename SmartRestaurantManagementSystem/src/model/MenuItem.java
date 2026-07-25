@@ -2,7 +2,7 @@ package model;
 //Mohamed Mamdouh Al-Farani
 //1320236401
 public class MenuItem {
-
+    
     private int itemId;
     private String itemName;
     private String category;
@@ -10,10 +10,10 @@ public class MenuItem {
     private String description;
     private String imagePath;
     private String status;
-
+    
     public MenuItem() {
     }
-
+    
     public MenuItem(int itemId, String itemName, String category,
                     double price, String description,
                     String imagePath, String status) {
